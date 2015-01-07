@@ -1,0 +1,22 @@
+{
+    "name": "chromabits/tutum-php",
+    "description": "PHP wrapper for Tutum API",
+    "require": {
+        "guzzlehttp/guzzle": "~5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4",
+        "mockery/mockery": "0.9.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chromabits\\TutumClient\\": "src/Chromabits/TutumClient/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eduardo Trujillo",
+            "email": "ed@chromabits.com"
+        }
+    ]
+}

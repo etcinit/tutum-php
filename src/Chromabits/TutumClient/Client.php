@@ -59,6 +59,7 @@ class Client
         // Copy credentials
         $this->username = $username;
         $this->apiKey = $apiKey;
+        $this->bearerKey = null;
 
         $this->baseUrl = $baseUrl;
 
@@ -166,5 +167,7 @@ class Client
     public function setBearerKey($bearerKey)
     {
         $this->bearerKey = $bearerKey;
+
+        $this->httpClient->setDefaultOption('headers/Authorization', $this->getAuthorizationHeader());
     }
 }

@@ -120,6 +120,6 @@ class EnvUtils
     {
         $segments = $url->getPathSegments();
 
-        return $segments[count($segments) - 1];
+        return $segments[count($segments) - 2];
     }
 }

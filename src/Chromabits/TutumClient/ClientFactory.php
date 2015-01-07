@@ -2,8 +2,8 @@
 
 namespace Chromabits\TutumClient;
 
-use Exception;
 use Chromabits\TutumClient\Support\EnvUtils;
+use Exception;
 
 /**
  * Class ClientFactory
@@ -30,7 +30,6 @@ class ClientFactory
         }
 
         $client = new Client('', '');
-
         $client->setBearerKey($env->getBearerKey());
 
         return $client;

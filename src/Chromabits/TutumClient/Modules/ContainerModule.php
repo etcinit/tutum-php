@@ -4,10 +4,23 @@ namespace Chromabits\TutumClient\Modules;
 
 use Chromabits\TutumClient\Responses\ContainerResponse;
 
+/**
+ * Class ContainerModule
+ *
+ * Client module for querying container resources (everything under /api/v1/container/)
+ *
+ * @package Chromabits\TutumClient\Modules
+ */
 class ContainerModule
 {
     use ModuleTrait;
 
+    /**
+     * Fetch information about a container
+     *
+     * @param $uuid
+     * @return ContainerResponse
+     */
     public function show($uuid)
     {
         $response = $this->httpClient->get($this->getResourceUrl($uuid));
@@ -15,6 +28,12 @@ class ContainerModule
         return ContainerResponse::createFromHttpResponse($response);
     }
 
+    /**
+     * Get the URL for a container resource based on a UUID
+     *
+     * @param $uuid
+     * @return string
+     */
     protected function getResourceUrl($uuid)
     {
         return 'container/' . $uuid . '/';

@@ -140,10 +140,15 @@ class Client
         return $this->baseUrl;
     }
 
+    /**
+     * Boot all client modules
+     */
     protected function bootModules()
     {
+        // Create instances
         $this->container = new ContainerModule();
 
+        // Pass HttpClient instance reference
         $this->container->setHttpClient($this->httpClient);
     }
 

@@ -7,6 +7,8 @@ use GuzzleHttp\Message\Response;
 
 /**
  * Trait ModuleTrait
+ *
+ * Defines a client module should behave
  */
 trait ModuleTrait
 {

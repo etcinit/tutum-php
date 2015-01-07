@@ -100,20 +100,6 @@ class ContainerLink
     }
 
     /**
-     * Return whether or not an endpoint exists
-     *
-     * @param $port
-     * @param string $protocol
-     * @return bool
-     */
-    public function hasEndpoint($port, $protocol = 'tcp')
-    {
-        $key = $port . '/' . $protocol;
-
-        return array_key_exists($key, $this->endpoints);
-    }
-
-    /**
      * Try to get a single endpoint as a Url
      *
      * @param $port
@@ -130,6 +116,20 @@ class ContainerLink
         $key = $port . '/' . $protocol;
 
         return Url::fromString($this->endpoints['key']);
+    }
+
+    /**
+     * Return whether or not an endpoint exists
+     *
+     * @param $port
+     * @param string $protocol
+     * @return bool
+     */
+    public function hasEndpoint($port, $protocol = 'tcp')
+    {
+        $key = $port . '/' . $protocol;
+
+        return array_key_exists($key, $this->endpoints);
     }
 
     /**

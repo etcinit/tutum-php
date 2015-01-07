@@ -28,6 +28,17 @@ class EnvUtils
     }
 
     /**
+     * Return whether or not an environment variable is defined
+     *
+     * @param $variable
+     * @return bool
+     */
+    protected function hasEnvVariable($variable)
+    {
+        return (getenv($variable) !== false);
+    }
+
+    /**
      * Get the Tutum API Bearer key
      *
      * @return mixed
@@ -55,6 +66,21 @@ class EnvUtils
     public function getContainerUuid()
     {
         return $this->getUuidFromUrl(Url::fromString(getenv('TUTUM_CONTAINER_API_URL')));
+    }
+
+    /**
+     * Extract the last part of a URL
+     *
+     * which in Tutum's case is usually the UUID
+     *
+     * @param Url $url
+     * @return mixed
+     */
+    protected function getUuidFromUrl(Url $url)
+    {
+        $segments = $url->getPathSegments();
+
+        return $segments[count($segments) - 2];
     }
 
     /**
@@ -95,31 +121,5 @@ class EnvUtils
     public function getHostname()
     {
         return getenv('TUTUM_CONTAINER_HOSTNAME');
-    }
-
-    /**
-     * Return whether or not an environment variable is defined
-     *
-     * @param $variable
-     * @return bool
-     */
-    protected function hasEnvVariable($variable)
-    {
-        return (getenv($variable) !== false);
-    }
-
-    /**
-     * Extract the last part of a URL
-     *
-     * which in Tutum's case is usually the UUID
-     *
-     * @param Url $url
-     * @return mixed
-     */
-    protected function getUuidFromUrl(Url $url)
-    {
-        $segments = $url->getPathSegments();
-
-        return $segments[count($segments) - 2];
     }
 }

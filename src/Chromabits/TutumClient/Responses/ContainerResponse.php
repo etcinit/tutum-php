@@ -6,6 +6,13 @@ use Chromabits\TutumClient\Entities\Container;
 use Chromabits\TutumClient\Entities\ContainerLink;
 use GuzzleHttp\Message\Response as HttpResponse;
 
+/**
+ * Class ContainerResponse
+ *
+ * Represents a response from an API call on /v1/api/container
+ *
+ * @package Chromabits\TutumClient\Responses
+ */
 class ContainerResponse extends Response
 {
     /**
@@ -13,6 +20,12 @@ class ContainerResponse extends Response
      */
     protected $container;
 
+    /**
+     * Create a new response instance out of an http response from Guzzle
+     *
+     * @param HttpResponse $response
+     * @return ContainerResponse
+     */
     public static function createFromHttpResponse(HttpResponse $response)
     {
         $containerResponse = new ContainerResponse();
@@ -38,7 +51,7 @@ class ContainerResponse extends Response
         $container->setUniqueName($json['unique_name']);
 
         // Parse links
-        foreach($json['linked_to_container'] as $rawLink) {
+        foreach ($json['linked_to_container'] as $rawLink) {
             $link = new ContainerLink(
                 $rawLink['name'],
                 $rawLink['from_container'],

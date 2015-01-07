@@ -33,6 +33,23 @@ class Container
     protected $links;
 
     /**
+     * Extracts the UUID from a URI
+     *
+     * /api/v1/container/4c037a97-49bd-495b-b5b2-cc58b3255690/
+     * into just
+     * 4c037a97-49bd-495b-b5b2-cc58b3255690
+     *
+     * @param $uri
+     * @return mixed
+     */
+    public static function parseUriToUuid($uri)
+    {
+        $uriTokens = explode('/', trim($uri, '/'));
+
+        return $uriTokens[count($uriTokens) - 1];
+    }
+
+    /**
      * @return string
      */
     public function getUuid()
@@ -100,7 +117,7 @@ class Container
 
         $regex = '/^' . $encodedName . '_([0-9]+)$/';
 
-        foreach($this->links as $link) {
+        foreach ($this->links as $link) {
             if (preg_match($regex, $link->getName())) {
                 $matching[] = $link;
             }
@@ -108,7 +125,7 @@ class Container
 
         // Find those that match TCP ports
         $matching = array_filter($matching, function (ContainerLink $link) use ($tcpPorts) {
-            foreach($tcpPorts as $tcpPort) {
+            foreach ($tcpPorts as $tcpPort) {
                 if (!$link->hasEndpoint($tcpPort, 'tcp')) {
                     return false;
                 }
@@ -119,7 +136,7 @@ class Container
 
         // Reduce even more by finding those that match UDP ports
         $matching = array_filter($matching, function (ContainerLink $link) use ($udpPorts) {
-            foreach($udpPorts as $udpPort) {
+            foreach ($udpPorts as $udpPort) {
                 if (!$link->hasEndpoint($udpPort, 'udp')) {
                     return false;
                 }
@@ -145,22 +162,5 @@ class Container
     protected function encodeServiceName($name)
     {
         return strtoupper(str_replace('', '_', $name));
-    }
-
-    /**
-     * Extracts the UUID from a URI
-     *
-     * /api/v1/container/4c037a97-49bd-495b-b5b2-cc58b3255690/
-     * into just
-     * 4c037a97-49bd-495b-b5b2-cc58b3255690
-     *
-     * @param $uri
-     * @return mixed
-     */
-    public static function parseUriToUuid($uri)
-    {
-        $uriTokens = explode('/', trim($uri, '/'));
-
-        return $uriTokens[count($uriTokens) - 1];
     }
 }

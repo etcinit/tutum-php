@@ -18,5 +18,6 @@
             "name": "Eduardo Trujillo",
             "email": "ed@chromabits.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev"
 }

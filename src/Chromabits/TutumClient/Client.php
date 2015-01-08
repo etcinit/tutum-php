@@ -2,6 +2,7 @@
 
 namespace Chromabits\TutumClient;
 
+use Chromabits\TutumClient\Interfaces\ClientInterface;
 use Chromabits\TutumClient\Modules\ContainerModule;
 use GuzzleHttp\Client as HttpClient;
 
@@ -12,7 +13,7 @@ use GuzzleHttp\Client as HttpClient;
  *
  * @package Chromabits\TutumClient
  */
-class Client
+class Client implements ClientInterface
 {
     /**
      * Tutum username

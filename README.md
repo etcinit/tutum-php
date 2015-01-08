@@ -9,6 +9,19 @@ A partial PHP wrapper of the Tutum API
 This is a simple library for querying and discovering container links in Tutum
 However, it could be expanded to a full client in the future
 
+## Install
+
+Add the following dependency to your composer.json:
+
+```js
+{
+    "require": {
+        "chromabits/tutum-php": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
+```
+
 ## Usage within a container:
 
 Example for getting all the links of a container:

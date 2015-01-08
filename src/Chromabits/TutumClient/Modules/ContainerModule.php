@@ -25,8 +25,6 @@ class ContainerModule
     {
         $response = $this->httpClient->get($this->getResourceUrl($uuid));
 
-        var_dump($response);
-
         return ContainerResponse::createFromHttpResponse($response);
     }
 

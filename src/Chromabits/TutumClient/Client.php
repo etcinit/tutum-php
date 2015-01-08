@@ -104,7 +104,6 @@ class Client implements ClientInterface
 
         $this->httpClient->setDefaultOption('headers/Authorization', $this->getAuthorizationHeader());
         $this->httpClient->setDefaultOption('headers/Accepts', 'application/json');
-        $this->httpClient->setDefaultOption('base_url', $this->baseUrl);
 
         $this->bootModules();
     }
@@ -117,18 +116,6 @@ class Client implements ClientInterface
     public function getHttpClient()
     {
         return $this->httpClient;
-    }
-
-    /**
-     * Set the base URL for all API call
-     *
-     * @param $baseUrl
-     */
-    public function setBaseUrl($baseUrl)
-    {
-        $this->baseUrl = $baseUrl;
-
-        $this->httpClient->setDefaultOption('base_url', $baseUrl);
     }
 
     /**

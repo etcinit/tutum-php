@@ -35,13 +35,6 @@ interface ClientInterface
     public function getHttpClient();
 
     /**
-     * Set the base URL for all API call
-     *
-     * @param $baseUrl
-     */
-    public function setBaseUrl($baseUrl);
-
-    /**
      * Get base URL
      *
      * @return string

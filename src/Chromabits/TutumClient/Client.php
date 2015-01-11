@@ -4,6 +4,7 @@ namespace Chromabits\TutumClient;
 
 use Chromabits\TutumClient\Interfaces\ClientInterface;
 use Chromabits\TutumClient\Modules\ContainerModule;
+use Chromabits\TutumClient\Modules\ServiceModule;
 use GuzzleHttp\Client as HttpClient;
 
 /**
@@ -47,6 +48,11 @@ class Client implements ClientInterface
      * @var ContainerModule
      */
     public $container;
+
+    /**
+     * @var ServiceModule
+     */
+    public $service;
 
     /**
      * Construct an instance of a Client
@@ -135,9 +141,11 @@ class Client implements ClientInterface
     {
         // Create instances
         $this->container = new ContainerModule();
+        $this->service = new ServiceModule();
 
         // Pass HttpClient instance reference
         $this->container->setHttpClient($this->httpClient);
+        $this->service->setHttpClient($this->httpClient);
     }
 
     /**

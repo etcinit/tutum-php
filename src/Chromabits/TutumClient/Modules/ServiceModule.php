@@ -6,7 +6,7 @@ use Chromabits\TutumClient\Entities\Service;
 use Chromabits\TutumClient\Requests\CreateServiceRequest;
 use Chromabits\TutumClient\Responses\ServiceResponse;
 use Chromabits\TutumClient\Responses\ServicesResponse;
-use Chromabits\TutumClient\Support\ArrayUtils;
+use Chromabits\Nucleus\Support\ArrayUtils;
 
 /**
  * Class ServiceModule
@@ -159,7 +159,7 @@ class ServiceModule
         $response = $this->httpClient->get(
             'service/',
             [
-                'query' => (new ArrayUtils())->filterIfNotNull(
+                'query' => (new ArrayUtils())->filterNullValues(
                     [
                         'state' => $state,
                         'name' => $name,

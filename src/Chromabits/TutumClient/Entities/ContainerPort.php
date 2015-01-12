@@ -3,7 +3,7 @@
 namespace Chromabits\TutumClient\Entities;
 
 use Chromabits\TutumClient\Interfaces\Arrayable;
-use Chromabits\TutumClient\Support\ArrayUtils;
+use Chromabits\Nucleus\Support\ArrayUtils;
 
 /**
  * Class ContainerPort
@@ -141,7 +141,7 @@ class ContainerPort implements Arrayable
      */
     public function toArray()
     {
-        return (new ArrayUtils())->filterIfNotSet(get_object_vars($this), [
+        return (new ArrayUtils())->filterNullValues(get_object_vars($this), [
             'protocol', 'inner_port', 'outer_port', 'published'
         ]);
     }

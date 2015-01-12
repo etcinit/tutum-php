@@ -48,6 +48,7 @@ class ContainerLink
      * @param $name
      * @param $from
      * @param $to
+     * @param array $endpoints
      */
     public function __construct($name, $from, $to, $endpoints = [])
     {
@@ -115,7 +116,7 @@ class ContainerLink
 
         $key = $port . '/' . $protocol;
 
-        return Url::fromString($this->endpoints['key']);
+        return Url::fromString($this->endpoints[$key]);
     }
 
     /**

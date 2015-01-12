@@ -3,8 +3,7 @@
 namespace Chromabits\TutumClient\Entities;
 
 use Chromabits\TutumClient\Interfaces\Arrayable;
-use Chromabits\TutumClient\Support\ArrayUtils;
-use Chromabits\TutumClient\Support\TutumUtils;
+use Chromabits\Nucleus\Support\ArrayUtils;
 use GuzzleHttp\Url;
 
 /**
@@ -235,7 +234,7 @@ class Service implements Arrayable
      */
     public function toArray()
     {
-        return (new ArrayUtils())->filterIfNotSet($this, ['name', 'image_name']);
+        return (new ArrayUtils())->filterNullValues($this, ['name', 'image_name']);
     }
 
     /**

@@ -6,7 +6,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.4",
-        "mockery/mockery": "0.9.*"
+        "mockery/mockery": "0.9.*",
+        "chromabits/nucleus": "0.1.*"
     },
     "autoload": {
         "psr-4": {

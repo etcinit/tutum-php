@@ -5,7 +5,7 @@ namespace Chromabits\TutumClient\Requests;
 use Chromabits\TutumClient\Entities\ContainerPort;
 use Chromabits\TutumClient\Entities\Service;
 use Chromabits\TutumClient\Interfaces\Arrayable;
-use Chromabits\TutumClient\Support\ArrayUtils;
+use Chromabits\Nucleus\Support\ArrayUtils;
 use Exception;
 
 /**
@@ -124,7 +124,7 @@ class CreateServiceRequest implements Arrayable
      */
     public function toArray()
     {
-        return (new ArrayUtils())->filterIfNotSet(get_object_vars($this), [
+        return (new ArrayUtils())->filterNullValues(get_object_vars($this), [
             'image', 'name', 'target_num_containers', 'run_command', 'entrypoint',
             'container_ports', 'container_envvars', 'linked_to_service',
             'autorestart', 'autodestroy', 'sequential_deployment', 'roles',

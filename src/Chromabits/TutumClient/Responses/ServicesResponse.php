@@ -3,7 +3,7 @@
 namespace Chromabits\TutumClient\Responses;
 
 use Chromabits\TutumClient\Entities\Service;
-use Chromabits\TutumClient\Support\ArrayUtils;
+use Chromabits\Nucleus\Support\ArrayUtils;
 use GuzzleHttp\Message\Response as HttpResponse;
 
 /**
@@ -59,7 +59,7 @@ class ServicesResponse extends Response
     {
         $service = new Service();
 
-        (new ArrayUtils())->callSettersIfNotSet(
+        (new ArrayUtils())->callSetters(
             $service,
             $json,
             [

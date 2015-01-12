@@ -2,12 +2,12 @@
     "name": "chromabits/tutum-php",
     "description": "PHP wrapper for Tutum API",
     "require": {
-        "guzzlehttp/guzzle": "~4.1"
+        "guzzlehttp/guzzle": "~4.1",
+        "chromabits/nucleus": "0.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.4",
-        "mockery/mockery": "0.9.*",
-        "chromabits/nucleus": "0.1.*"
+        "mockery/mockery": "0.9.*"
     },
     "autoload": {
         "psr-4": {

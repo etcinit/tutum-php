@@ -117,6 +117,10 @@ class Container
 
         $regex = '/^' . $encodedName . '_([0-9]+)$/';
 
+        if (!is_array($this->links)) {
+            return [];
+        }
+
         foreach ($this->links as $link) {
             if (preg_match($regex, $link->getName())) {
                 $matching[] = $link;

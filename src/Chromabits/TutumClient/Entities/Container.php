@@ -161,6 +161,6 @@ class Container
      */
     protected function encodeServiceName($name)
     {
-        return strtoupper(str_replace('', '_', $name));
+        return strtoupper(str_replace(['', '-'], '_', $name));
     }
 }

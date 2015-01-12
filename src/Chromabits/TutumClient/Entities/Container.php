@@ -122,7 +122,7 @@ class Container
         }
 
         foreach ($this->links as $link) {
-            if (preg_match($regex, $link->getName()) !== false) {
+            if (preg_match($regex, $link->getName())) {
                 $matching[] = $link;
             }
         }

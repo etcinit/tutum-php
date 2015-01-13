@@ -2,6 +2,7 @@
 
 namespace Chromabits\TutumClient\Support;
 
+use Exception;
 use GuzzleHttp\Url;
 
 /**
@@ -75,10 +76,19 @@ class EnvUtils
      *
      * @param Url $url
      * @return mixed
+     * @throws Exception
      */
     protected function getUuidFromUrl(Url $url)
     {
         $segments = $url->getPathSegments();
+
+        if (count($segments) < 1) {
+            throw new Exception('Invalid UUID');
+        }
+
+        if (count($segments) < 2) {
+            return $segments[0];
+        }
 
         return $segments[count($segments) - 2];
     }

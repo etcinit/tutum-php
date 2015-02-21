@@ -2,15 +2,16 @@
 
 namespace Chromabits\TutumClient\Modules;
 
+use Chromabits\Nucleus\Support\ArrayUtils;
 use Chromabits\TutumClient\Entities\Service;
 use Chromabits\TutumClient\Requests\CreateServiceRequest;
 use Chromabits\TutumClient\Responses\ServiceResponse;
 use Chromabits\TutumClient\Responses\ServicesResponse;
-use Chromabits\Nucleus\Support\ArrayUtils;
 
 /**
  * Class ServiceModule
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Modules
  */
 class ServiceModule
@@ -21,6 +22,7 @@ class ServiceModule
      * Create a new service
      *
      * @param CreateServiceRequest $serviceRequest
+     *
      * @return \Chromabits\TutumClient\Responses\ServiceResponse
      */
     public function create(CreateServiceRequest $serviceRequest)
@@ -39,6 +41,7 @@ class ServiceModule
      * Start a service
      *
      * @param string|Service $uuid
+     *
      * @return \Chromabits\TutumClient\Responses\ServiceResponse
      */
     public function start($uuid)
@@ -59,6 +62,7 @@ class ServiceModule
      * Get the URL for a service resource based on a UUID
      *
      * @param $uuid
+     *
      * @return string
      */
     protected function getResourceUrl($uuid)
@@ -70,6 +74,7 @@ class ServiceModule
      * Stop a service
      *
      * @param string|Service $uuid
+     *
      * @return \Chromabits\TutumClient\Responses\ServiceResponse
      */
     public function stop($uuid)
@@ -90,6 +95,7 @@ class ServiceModule
      * Redeploy a service
      *
      * @param string|Service $uuid
+     *
      * @return \Chromabits\TutumClient\Responses\ServiceResponse
      */
     public function redeploy($uuid)
@@ -110,6 +116,7 @@ class ServiceModule
      * Get a service
      *
      * @param string|Service $uuid
+     *
      * @return \Chromabits\TutumClient\Responses\ServiceResponse
      */
     public function show($uuid)
@@ -130,6 +137,7 @@ class ServiceModule
      * Terminate a service
      *
      * @param string|Service $uuid
+     *
      * @return \Chromabits\TutumClient\Responses\ServiceResponse
      */
     public function terminate($uuid)
@@ -152,6 +160,7 @@ class ServiceModule
      * @param string $state Filter by state
      * @param string $name Filter by name
      * @param string $unique_name Filter by unique name
+     *
      * @return \Chromabits\TutumClient\Responses\ServicesResponse
      */
     public function index($state = null, $name = null, $unique_name = null)

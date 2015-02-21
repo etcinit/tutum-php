@@ -2,10 +2,10 @@
 
 namespace Chromabits\TutumClient\Requests;
 
+use Chromabits\Nucleus\Support\ArrayUtils;
 use Chromabits\TutumClient\Entities\ContainerPort;
 use Chromabits\TutumClient\Entities\Service;
 use Chromabits\TutumClient\Interfaces\Arrayable;
-use Chromabits\Nucleus\Support\ArrayUtils;
 use Exception;
 
 /**
@@ -13,6 +13,7 @@ use Exception;
  *
  * Represents a request for creating a new service
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Requests
  */
 class CreateServiceRequest implements Arrayable
@@ -125,10 +126,10 @@ class CreateServiceRequest implements Arrayable
     public function toArray()
     {
         return (new ArrayUtils())->filterNullValues(get_object_vars($this), [
-            'image', 'name', 'target_num_containers', 'run_command', 'entrypoint',
-            'container_ports', 'container_envvars', 'linked_to_service',
-            'autorestart', 'autodestroy', 'sequential_deployment', 'roles',
-            'privileged', 'tags'
+            'image', 'name', 'target_num_containers', 'run_command',
+            'entrypoint', 'container_ports', 'container_envvars',
+            'linked_to_service', 'autorestart', 'autodestroy',
+            'sequential_deployment', 'roles', 'privileged', 'tags'
         ]);
     }
 
@@ -155,11 +156,11 @@ class CreateServiceRequest implements Arrayable
     /**
      * Set target number of containers
      *
-     * @param int $target_num_containers
+     * @param int $targetNumContainers
      */
-    public function setTargetNumContainers($target_num_containers)
+    public function setTargetNumContainers($targetNumContainers)
     {
-        $this->target_num_containers = $target_num_containers;
+        $this->target_num_containers = $targetNumContainers;
     }
 
     /**
@@ -207,15 +208,16 @@ class CreateServiceRequest implements Arrayable
     }
 
     /**
-     * @param string $run_command
+     * @param string $runCommand
      */
-    public function setRunCommand($run_command)
+    public function setRunCommand($runCommand)
     {
-        $this->run_command = $run_command;
+        $this->run_command = $runCommand;
     }
 
     /**
      * @param boolean $autorestart
+     *
      * @throws Exception
      */
     public function setAutorestart($autorestart)
@@ -229,6 +231,7 @@ class CreateServiceRequest implements Arrayable
 
     /**
      * @param boolean $autodestroy
+     *
      * @throws Exception
      */
     public function setAutodestroy($autodestroy)
@@ -241,11 +244,11 @@ class CreateServiceRequest implements Arrayable
     }
 
     /**
-     * @param boolean $sequential_deployment
+     * @param boolean $sequentialDeployment
      */
-    public function setSequentialDeployment($sequential_deployment)
+    public function setSequentialDeployment($sequentialDeployment)
     {
-        $this->sequential_deployment = $sequential_deployment;
+        $this->sequential_deployment = $sequentialDeployment;
     }
 
     /**
@@ -260,6 +263,7 @@ class CreateServiceRequest implements Arrayable
      * Add a role
      *
      * @param $role
+     *
      * @throws Exception
      */
     public function addRole($role)

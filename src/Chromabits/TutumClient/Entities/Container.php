@@ -7,6 +7,7 @@ namespace Chromabits\TutumClient\Entities;
  *
  * Represents a Container resource on the Tutum API
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Entities
  */
 class Container
@@ -40,6 +41,7 @@ class Container
      * 4c037a97-49bd-495b-b5b2-cc58b3255690
      *
      * @param $uri
+     *
      * @return mixed
      */
     public static function parseUriToUuid($uri)
@@ -107,6 +109,7 @@ class Container
      * @param string $serviceName
      * @param int[] $tcpPorts
      * @param int[] $udpPorts
+     *
      * @return ContainerLink[]
      */
     public function findLinks($serviceName, $tcpPorts = [], $udpPorts = [])
@@ -128,26 +131,32 @@ class Container
         }
 
         // Find those that match TCP ports
-        $matching = array_filter($matching, function (ContainerLink $link) use ($tcpPorts) {
-            foreach ($tcpPorts as $tcpPort) {
-                if (!$link->hasEndpoint($tcpPort, 'tcp')) {
-                    return false;
+        $matching = array_filter(
+            $matching,
+            function (ContainerLink $link) use ($tcpPorts) {
+                foreach ($tcpPorts as $tcpPort) {
+                    if (!$link->hasEndpoint($tcpPort, 'tcp')) {
+                        return false;
+                    }
                 }
-            }
 
-            return true;
-        });
+                return true;
+            }
+        );
 
         // Reduce even more by finding those that match UDP ports
-        $matching = array_filter($matching, function (ContainerLink $link) use ($udpPorts) {
-            foreach ($udpPorts as $udpPort) {
-                if (!$link->hasEndpoint($udpPort, 'udp')) {
-                    return false;
+        $matching = array_filter(
+            $matching,
+            function (ContainerLink $link) use ($udpPorts) {
+                foreach ($udpPorts as $udpPort) {
+                    if (!$link->hasEndpoint($udpPort, 'udp')) {
+                        return false;
+                    }
                 }
-            }
 
-            return true;
-        });
+                return true;
+            }
+        );
 
         return $matching;
     }
@@ -161,6 +170,7 @@ class Container
      * MY_SUPER_SERVICE
      *
      * @param $name
+     *
      * @return string
      */
     protected function encodeServiceName($name)

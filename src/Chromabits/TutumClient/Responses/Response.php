@@ -9,6 +9,7 @@ use GuzzleHttp\Message\Response as HttpResponse;
  *
  * Base response class
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Responses
  */
 abstract class Response

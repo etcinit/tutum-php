@@ -12,6 +12,7 @@ use GuzzleHttp\Client as HttpClient;
  *
  * Main client class for talking to the Tutum API
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient
  */
 class Client implements ClientInterface
@@ -61,8 +62,11 @@ class Client implements ClientInterface
      * @param string $apiKey
      * @param string $baseUrl
      */
-    public function __construct($username, $apiKey, $baseUrl = 'https://dashboard.tutum.co/api/v1/')
-    {
+    public function __construct(
+        $username,
+        $apiKey,
+        $baseUrl = 'https://dashboard.tutum.co/api/v1/'
+    ) {
         // Copy credentials
         $this->username = $username;
         $this->apiKey = $apiKey;
@@ -108,8 +112,14 @@ class Client implements ClientInterface
     {
         $this->httpClient = $client;
 
-        $this->httpClient->setDefaultOption('headers/Authorization', $this->getAuthorizationHeader());
-        $this->httpClient->setDefaultOption('headers/Accepts', 'application/json');
+        $this->httpClient->setDefaultOption(
+            'headers/Authorization',
+            $this->getAuthorizationHeader()
+        );
+        $this->httpClient->setDefaultOption(
+            'headers/Accepts',
+            'application/json'
+        );
 
         $this->bootModules();
     }
@@ -169,6 +179,9 @@ class Client implements ClientInterface
     {
         $this->bearerKey = $bearerKey;
 
-        $this->httpClient->setDefaultOption('headers/Authorization', $this->getAuthorizationHeader());
+        $this->httpClient->setDefaultOption(
+            'headers/Authorization',
+            $this->getAuthorizationHeader()
+        );
     }
 }

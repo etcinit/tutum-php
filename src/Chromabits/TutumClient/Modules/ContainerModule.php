@@ -7,8 +7,10 @@ use Chromabits\TutumClient\Responses\ContainerResponse;
 /**
  * Class ContainerModule
  *
- * Client module for querying container resources (everything under /api/v1/container/)
+ * Client module for querying container resources
+ * (everything under /api/v1/container/)
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Modules
  */
 class ContainerModule
@@ -19,6 +21,7 @@ class ContainerModule
      * Fetch information about a container
      *
      * @param $uuid
+     *
      * @return ContainerResponse
      */
     public function show($uuid)
@@ -32,6 +35,7 @@ class ContainerModule
      * Get the URL for a container resource based on a UUID
      *
      * @param $uuid
+     *
      * @return string
      */
     protected function getResourceUrl($uuid)

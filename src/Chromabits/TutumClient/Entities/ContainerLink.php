@@ -10,6 +10,7 @@ use GuzzleHttp\Url;
  *
  * Represents a link between two containers
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Entities
  */
 class ContainerLink
@@ -105,6 +106,7 @@ class ContainerLink
      *
      * @param $port
      * @param string $protocol
+     *
      * @return Url
      * @throws Exception
      */
@@ -124,6 +126,7 @@ class ContainerLink
      *
      * @param $port
      * @param string $protocol
+     *
      * @return bool
      */
     public function hasEndpoint($port, $protocol = 'tcp')

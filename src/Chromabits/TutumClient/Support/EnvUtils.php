@@ -14,6 +14,7 @@ use GuzzleHttp\Url;
  * Note: For this to work, this PHP code must be executed on the process
  * ran inside the container. This won't work on a regular web server
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Support
  */
 class EnvUtils
@@ -32,6 +33,7 @@ class EnvUtils
      * Return whether or not an environment variable is defined
      *
      * @param $variable
+     *
      * @return bool
      */
     protected function hasEnvVariable($variable)
@@ -66,7 +68,9 @@ class EnvUtils
      */
     public function getContainerUuid()
     {
-        return $this->getUuidFromUrl(Url::fromString(getenv('TUTUM_CONTAINER_API_URL')));
+        return $this->getUuidFromUrl(
+            Url::fromString(getenv('TUTUM_CONTAINER_API_URL'))
+        );
     }
 
     /**
@@ -75,6 +79,7 @@ class EnvUtils
      * which in Tutum's case is usually the UUID
      *
      * @param Url $url
+     *
      * @return mixed
      * @throws Exception
      */
@@ -110,7 +115,9 @@ class EnvUtils
      */
     public function getServiceUuid()
     {
-        return $this->getUuidFromUrl(Url::fromString(getenv('TUTUM_SERVICE_API_URL')));
+        return $this->getUuidFromUrl(
+            Url::fromString(getenv('TUTUM_SERVICE_API_URL'))
+        );
     }
 
     /**

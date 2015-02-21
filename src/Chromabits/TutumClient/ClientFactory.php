@@ -10,6 +10,7 @@ use Exception;
  *
  * Builds Tutum API clients
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient
  */
 class ClientFactory
@@ -26,7 +27,9 @@ class ClientFactory
 
         // Check that we have all variables we need
         if (!$env->hasBearerKey()) {
-            throw new Exception('TUTUM_AUTH is not set. Unable to create from environment');
+            throw new Exception(
+                'TUTUM_AUTH is not set. Unable to create from environment'
+            );
         }
 
         $client = new Client('', '');

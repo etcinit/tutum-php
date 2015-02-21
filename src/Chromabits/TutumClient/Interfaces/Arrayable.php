@@ -7,6 +7,7 @@ namespace Chromabits\TutumClient\Interfaces;
  *
  * Describes classes which can be represented as arrays instances
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Interfaces
  */
 interface Arrayable

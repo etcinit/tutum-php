@@ -2,13 +2,14 @@
 
 namespace Chromabits\TutumClient\Responses;
 
-use Chromabits\TutumClient\Entities\Service;
 use Chromabits\Nucleus\Support\ArrayUtils;
+use Chromabits\TutumClient\Entities\Service;
 use GuzzleHttp\Message\Response as HttpResponse;
 
 /**
  * Class ServiceResponse
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Responses
  */
 class ServiceResponse extends Response
@@ -22,6 +23,7 @@ class ServiceResponse extends Response
      * Create a new response instance out of an http response from Guzzle
      *
      * @param HttpResponse $response
+     *
      * @return ContainerResponse
      */
     public static function createFromHttpResponse(HttpResponse $response)
@@ -48,14 +50,17 @@ class ServiceResponse extends Response
             $service,
             $json,
             [
-                'autodestroy', 'autorestart', 'bindings', 'container_envvars', 'container_ports',
-                'containers', 'cpu_shares', 'current_num_containers', 'deployed_datetime',
-                'deployment_strategy', 'destroyed_datetime', 'entrypoint', 'image_name',
-                'image_tag', 'link_variables', 'linked_from_service', 'memory', 'name',
-                'privileged', 'public_dns', 'resource_uri', 'roles', 'run_command',
-                'running_num_containers', 'sequential_deployment', 'started_datetime',
-                'state', 'stopped_datetime', 'stopped_num_containers', 'tags',
-                'target_num_containers', 'unique_name', 'uuid', 'webhook'
+                'autodestroy', 'autorestart', 'bindings', 'container_envvars',
+                'container_ports', 'containers', 'cpu_shares',
+                'current_num_containers', 'deployed_datetime',
+                'deployment_strategy', 'destroyed_datetime', 'entrypoint',
+                'image_name', 'image_tag', 'link_variables',
+                'linked_from_service', 'memory', 'name', 'privileged',
+                'public_dns', 'resource_uri', 'roles', 'run_command',
+                'running_num_containers', 'sequential_deployment',
+                'started_datetime', 'state', 'stopped_datetime',
+                'stopped_num_containers', 'tags', 'target_num_containers',
+                'unique_name', 'uuid', 'webhook'
             ]
         );
 

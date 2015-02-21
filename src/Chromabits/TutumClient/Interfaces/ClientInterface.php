@@ -9,6 +9,7 @@ use GuzzleHttp\Client as HttpClient;
  *
  * Main client class for talking to the Tutum API
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient
  */
 interface ClientInterface

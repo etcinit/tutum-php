@@ -2,13 +2,14 @@
 
 namespace Chromabits\TutumClient\Entities;
 
-use Chromabits\TutumClient\Interfaces\Arrayable;
 use Chromabits\Nucleus\Support\ArrayUtils;
+use Chromabits\TutumClient\Interfaces\Arrayable;
 use GuzzleHttp\Url;
 
 /**
  * Class Service
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Entities
  */
 class Service implements Arrayable
@@ -234,7 +235,8 @@ class Service implements Arrayable
      */
     public function toArray()
     {
-        return (new ArrayUtils())->filterNullValues($this, ['name', 'image_name']);
+        return (new ArrayUtils())
+            ->filterNullValues($this, ['name', 'image_name']);
     }
 
     /**
@@ -697,6 +699,7 @@ class Service implements Arrayable
 
     /**
      * @param $autorestart
+     *
      * @throws \Exception
      */
     public function setAutoRestart($autorestart)
@@ -714,6 +717,7 @@ class Service implements Arrayable
 
     /**
      * @param $autodestroy
+     *
      * @throws \Exception
      */
     public function setAutoDestroy($autodestroy)

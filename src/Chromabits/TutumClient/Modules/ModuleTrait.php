@@ -9,6 +9,9 @@ use GuzzleHttp\Message\Response;
  * Trait ModuleTrait
  *
  * Defines a client module should behave
+ *
+ * @author Eduardo Trujillo <ed@chromabits.com>
+ * @package Chromabits\TutumClient\Modules
  */
 trait ModuleTrait
 {
@@ -33,6 +36,7 @@ trait ModuleTrait
      * Parse the response into an stdClass object
      *
      * @param Response $response
+     *
      * @return mixed
      */
     protected function parseResponse(Response $response)

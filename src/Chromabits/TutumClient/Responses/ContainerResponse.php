@@ -11,6 +11,7 @@ use GuzzleHttp\Message\Response as HttpResponse;
  *
  * Represents a response from an API call on /v1/api/container
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Responses
  */
 class ContainerResponse extends Response
@@ -24,6 +25,7 @@ class ContainerResponse extends Response
      * Create a new response instance out of an http response from Guzzle
      *
      * @param HttpResponse $response
+     *
      * @return ContainerResponse
      */
     public static function createFromHttpResponse(HttpResponse $response)

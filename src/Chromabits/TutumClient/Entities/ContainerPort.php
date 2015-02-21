@@ -2,14 +2,15 @@
 
 namespace Chromabits\TutumClient\Entities;
 
-use Chromabits\TutumClient\Interfaces\Arrayable;
 use Chromabits\Nucleus\Support\ArrayUtils;
+use Chromabits\TutumClient\Interfaces\Arrayable;
 
 /**
  * Class ContainerPort
  *
  * Represents a container port
  *
+ * @author Eduardo Trujillo <ed@chromabits.com>
  * @package Chromabits\TutumClient\Entities
  */
 class ContainerPort implements Arrayable
@@ -55,8 +56,11 @@ class ContainerPort implements Arrayable
      * @param null $outerPort
      * @param null $published
      */
-    public function __construct($innerPort, $protocol = 'tcp', $outerPort = null, $published = null)
-    {
+    public function __construct(
+        $innerPort, $protocol = 'tcp',
+        $outerPort = null,
+        $published = null
+    ) {
         $this->protocol = $protocol;
 
         $this->inner_port = $innerPort;
@@ -95,11 +99,11 @@ class ContainerPort implements Arrayable
     }
 
     /**
-     * @param int $inner_port
+     * @param int $innerPort
      */
-    public function setInnerPort($inner_port)
+    public function setInnerPort($innerPort)
     {
-        $this->inner_port = $inner_port;
+        $this->inner_port = $innerPort;
     }
 
     /**
@@ -111,11 +115,11 @@ class ContainerPort implements Arrayable
     }
 
     /**
-     * @param int $outer_port
+     * @param int $outerPort
      */
-    public function setOuterPort($outer_port)
+    public function setOuterPort($outerPort)
     {
-        $this->outer_port = $outer_port;
+        $this->outer_port = $outerPort;
     }
 
     /**
